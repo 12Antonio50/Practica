@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de programación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Calculadora</h2>
+        <table>
+            <tr>
+                <td><input type="number" id="numero1" name="numero"></td>
+                <td><button onclick="calculadora('+')">+</button></td>
+                <td><input type="number" id="numero2" name="numero2"></td>
+            </tr>
+            <tr>
+                <td><button onclick="calculadora('-')">-</button></td>
+                <td><button onclick="calculadora('*')">*</button></td>
+                <td><button onclick="calculadora('/')">/</button></td>
+            </tr>
+        </table>
+        <p id="sumas">Resultado: </p>
+    </div>
+    <div class="matrix">
+        <!-- Genera unos y ceros aleatoriamente -->
+        <script>
+            function generateMatrix() {
+                const matrixContainer = document.querySelector(".matrix");
+                const characters = ["0", "1"];
+                const numCharacters = characters.length;
+                const numColumns = Math.ceil(window.innerWidth / 20);
+
+                for (let i = 0; i < numColumns; i++) {
+                    const span = document.createElement("span");
+                    span.textContent = characters[Math.floor(Math.random() * numCharacters)];
+                    span.style.left = i * 20 + "px";
+                    span.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                    matrixContainer.appendChild(span);
+                }
+            }
+
+            generateMatrix(); // Inicialmente, genera los unos y ceros
+        </script>
+        <script src="ejecicios.js"></script>
+    </div>
+</body>
+
+</html>
